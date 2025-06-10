@@ -17,7 +17,7 @@
         <a href="index.html"><img src="media/logo-certibiocide5.png" width="90" class="logo-img"></a>
         <div class="logo-text" style="float: left;">Certibiocide</div>
 
-        <div class="itemlist">
+        <div class="itemlist" id="itemlist">
           <a href="#">Accueil</a>
           <a href="#section2">Présentation</a>
           <a href="#obj">Objectif</a>
@@ -26,6 +26,9 @@
 
         </div>
       </div>
+      <div class="hamburger" onclick="toggleMenu()">
+      ☰
+    </div>
     </div>
   </header>
 
@@ -352,7 +355,27 @@ button.addEventListener("click", () => {
   button.disabled = true;
   setTimeout(() => button.disabled = false, 1000); // Re-enable after 1 sec
 });
+
+
+  function toggleMenu() {
+    document.getElementById("itemlist").classList.toggle("active");
+  }
+
+  const hamburger = document.getElementById('hamburger');
+  const itemlist = document.getElementById('itemlist');
+  const links = itemlist.querySelectorAll('a');
+
+ 
+  // Close menu on link click
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      itemlist.classList.remove('active');
+    });
+  });
 </script>
+
+
+
 
 </body>
 
